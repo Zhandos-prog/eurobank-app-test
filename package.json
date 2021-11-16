@@ -1,0 +1,28 @@
+{
+  "name": "test-app",
+  "version": "1.0.0",
+  "description": "test application for eurobank",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "test",
+    "application",
+    "test-application",
+    "test-application-eurobank"
+  ],
+  "author": "Sutemgenov Zhandos <sutemgenov.zhandos@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
