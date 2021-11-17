@@ -10,3 +10,6 @@ Test application
 
 
 Test user: user_2@eurobank.kz, user_1@eurobank.kz, user_4@eurobank.kz; Password: 12345678
+
+
+![Screenshot_1](https://user-images.githubusercontent.com/60063310/142265160-17a6da98-456d-44cd-ac4a-9cb639d1edbd.png)
