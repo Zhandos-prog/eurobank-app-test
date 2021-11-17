@@ -14,80 +14,46 @@
                 <h1 class="h2">My files</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group mr-2 mx-2">
-                        <button type="button" class="btn btn-sm btn-outline-secondary modal-button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Import Excel</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary modal-button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Upload File</button>
                     </div>
                 </div>
             </div>
+            <% if (messages.error) { %>
+                <div class="alert alert-danger" role="alert">
+                    <%- messages.error %>
+                </div>
+            <% } %>
+            <% if (messages.success) { %>
+                <div class="alert alert-success" role="alert">
+                    <%- messages.success %>
+                </div>
+            <% } %>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Header</th>
-                        <th scope="col">Header</th>
-                        <th scope="col">Header</th>
+                        <th scope="col">File</th>
+                        <th scope="col">Creating time</th>
+                        <th scope="col">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1,001</td>
-                        <td>random</td>
-                        <td>data</td>
-                        <td>placeholder</td>
-                        <td>text</td>
-                    </tr>
-                    <tr>
-                        <td>1,002</td>
-                        <td>placeholder</td>
-                        <td>irrelevant</td>
-                        <td>visual</td>
-                        <td>layout</td>
-                    </tr>
-                    <tr>
-                        <td>1,003</td>
-                        <td>data</td>
-                        <td>rich</td>
-                        <td>dashboard</td>
-                        <td>tabular</td>
-                    </tr>
-                    <tr>
-                        <td>1,003</td>
-                        <td>information</td>
-                        <td>placeholder</td>
-                        <td>illustrative</td>
-                        <td>data</td>
-                    </tr>
-                    <tr>
-                        <td>1,004</td>
-                        <td>text</td>
-                        <td>random</td>
-                        <td>layout</td>
-                        <td>dashboard</td>
-                    </tr>
-                    <tr>
-                        <td>1,005</td>
-                        <td>dashboard</td>
-                        <td>irrelevant</td>
-                        <td>text</td>
-                        <td>placeholder</td>
-                    </tr>
-                    <tr>
-                        <td>1,006</td>
-                        <td>dashboard</td>
-                        <td>illustrative</td>
-                        <td>rich</td>
-                        <td>data</td>
-                    </tr>
-                    <tr>
-                        <td>1,007</td>
-                        <td>placeholder</td>
-                        <td>tabular</td>
-                        <td>information</td>
-                        <td>irrelevant</td>
-                    </tr>
+                    <% if (files.length > 0) { %>
+                        <% for (var i = 0; i < files.length; i++) { %>
+                            <tr>
+                                <td><%= files[i].id %></td>
+                                <td><a target="_blank" href="uploads/<%= files[i].fileName %>">show</a></td>
+                                <td><%= moment(files[i].createdAt).format('Do MMMM, YYYY')  %></td>
+                                <td><a href="/file-download/<%= files[i].id %>">download</a></td>
+                            </tr>
+                        <% } %>
+                    <% } %>
                     </tbody>
                 </table>
+                <% if (files.length === 0) { %>
+                    <p class="text-center">У вас не имеется файлов</p>
+                <% } %>
             </div>
         </main>
     </div>

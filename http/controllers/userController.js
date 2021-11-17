@@ -10,16 +10,15 @@ class userController {
             if (user && bcript.compareSync(password, user.password)) {
                 req.session.loggedIn = true;
                 req.session.user_id = user.id;
-                req.session.email = user.email;
                 res.redirect('/');
             }
             else {
-                req.flash('error', 'Invalid username or password!')
-                res.redirect('/');
+                req.flash('error', 'Invalid username or password.')
+                res.redirect(req.headers.referer);
             }
-        }catch (e) {
-            console.log(e)
-            res.status(400).json({message: 'Authorization error'})
+        } catch (e) {
+            req.flash('error', 'Something went wrong! Try again!')
+            res.redirect(req.headers.referer);
         }
     }
 

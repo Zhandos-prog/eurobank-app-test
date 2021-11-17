@@ -11,7 +11,7 @@ User.hasMany(File, {
 const users = [
     { email: "user_1@eurobank.kz",password: bcript.hashSync('12345678',7) },
     { email: "user_2@eurobank.kz",password: bcript.hashSync('12345678',7) },
-    { email: "user_3@eurobank.kz",password: bcript.hashSync('12345678',7) }
+    { email: "user_4@eurobank.kz",password: bcript.hashSync('12345678',7) }
 ]
 
 users.forEach((item)=> {
